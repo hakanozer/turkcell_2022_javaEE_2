@@ -12,6 +12,15 @@
         <div class="col-sm-4"></div>
         <div class="col-sm-4">
             <h2>Admin Login</h2>
+            <%
+                Object errorObj = request.getAttribute("error");
+                if ( errorObj != null ) {
+            %>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>Error!</strong> <%=errorObj%>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            <%}%>
             <form action="login" method="post">
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Email address</label>
