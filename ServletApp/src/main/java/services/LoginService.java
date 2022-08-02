@@ -1,5 +1,6 @@
 package services;
 
+import props.Admin;
 import utils.DB;
 
 import java.sql.PreparedStatement;
@@ -10,7 +11,7 @@ public class LoginService {
 
     // DB...
 
-    public boolean login( String email, String password ) {
+    public Admin login(String email, String password ) {
         DB db = new DB();
         boolean status = false;
         try {
@@ -25,14 +26,23 @@ public class LoginService {
             ResultSet rs = st.executeQuery();
             status = rs.next();
             if ( status ) {
-                System.out.println("Giriş Başarılı");
-            }else {
-                System.out.println("Kullanıcı bilgileri hatalı!");
+                Admin admin = new Admin();
+
+                int aid = rs.getInt("aid");
+                String name = rs.getString("name");
+                String emailvt = rs.getString("email");
+
+                admin.setAid(aid);
+                admin.setEmail(emailvt);
+                admin.setName(name);
+                return admin;
             }
         }catch (Exception ex) {
             System.err.println("login Error : " + ex);
+        }finally {
+            db.close();
         }
-        return status;
+        return null;
     }
 
 }

@@ -1,5 +1,6 @@
 package servlets;
 
+import props.Admin;
 import services.LoginService;
 import utils.Util;
 
@@ -24,8 +25,11 @@ public class LoginServlet extends HttpServlet {
 
         String email = req.getParameter("email");
         String password = req.getParameter("password");
-        boolean loginStatus = loginService.login(email,password);
-        if ( loginStatus ) {
+        Admin admin = loginService.login(email,password);
+        if ( admin != null ) {
+            // create Session
+            req.getSession().setAttribute("user", admin);
+
             resp.sendRedirect(Util.base_url+"dashboard.jsp");
         }else {
             req.setAttribute("error", "E-mail or Password Fail");

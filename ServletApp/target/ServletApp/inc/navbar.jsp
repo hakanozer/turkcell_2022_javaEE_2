@@ -1,4 +1,12 @@
+<%@ page import="props.Admin" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    Admin admin = new Admin();
+    Object obj = request.getAttribute("admin");
+    if ( obj != null ) {
+        admin = (Admin) obj;
+    }
+%>
 <nav class="navbar navbar-expand-lg bg-light">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">Navbar</a>
@@ -25,7 +33,7 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link disabled">Disabled</a>
+                    <a class="nav-link disabled"> <%=admin.getName()%> </a>
                 </li>
             </ul>
             <form class="d-flex" role="search">
