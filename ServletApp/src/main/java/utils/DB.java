@@ -23,5 +23,17 @@ public class DB {
         return conn;
     }
 
+    public void close() {
+        try {
+            if ( conn != null && !conn.isClosed() ) {
+                conn.close();
+                System.out.println("Connection Close");
+            }
+        }catch (Exception ex) {
+            System.err.println( "close Error : " + ex );
+        }
+    }
+
+
 
 }

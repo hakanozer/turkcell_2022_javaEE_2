@@ -12,6 +12,7 @@ public class LoginService {
         if ( email.equals("ali@mail.com") && password.equals("12345") ) {
             return  true;
         }
+        db.close();
         return false;
     }
 
