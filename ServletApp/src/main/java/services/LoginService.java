@@ -45,4 +45,30 @@ public class LoginService {
         return null;
     }
 
+
+    public Admin single( int aid ) {
+        Admin admin = null;
+        DB db = new DB();
+        try {
+            String sql = "select * from admin where aid = ?";
+            PreparedStatement pre = db.getConn().prepareStatement(sql);
+            pre.setInt(1, aid);
+            ResultSet rs = pre.executeQuery();
+            if ( rs.next() ) {
+                int aidvt = rs.getInt("aid");
+                String name = rs.getString("name");
+                String emailvt = rs.getString("email");
+                admin = new Admin();
+                admin.setAid(aidvt);
+                admin.setName(name);
+                admin.setEmail(emailvt);
+            }
+        }catch (Exception ex) {
+            System.err.println("single Error : " + ex);
+        }finally {
+            db.close();
+        }
+        return admin;
+    }
+
 }
