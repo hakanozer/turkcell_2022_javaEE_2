@@ -1,4 +1,9 @@
+<%@ page import="services.ProductService" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    ProductService service = new ProductService();
+    service.allProduct();
+%>
 <html>
 <head>
     <title>Title</title>

@@ -1,4 +1,11 @@
+<%@ page import="services.ProductService" %>
+<%@ page import="props.Bilgiler" %>
+<%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    ProductService service = new ProductService();
+    List<Bilgiler> ls = service.allProduct();
+%>
 <html>
 <head>
     <title>Title</title>

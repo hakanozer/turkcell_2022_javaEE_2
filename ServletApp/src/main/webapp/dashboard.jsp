@@ -27,16 +27,16 @@
             <h3>Person Add</h3>
             <form action="parsonSave" method="post">
                 <div class="mb-3">
-                    <input name="name" class="form-control" type="text" placeholder="Name" />
+                    <input required name="name" class="form-control" type="text" placeholder="Name" />
                 </div>
                 <div class="mb-3">
-                    <input name="email" class="form-control" type="email" placeholder="E-Mail" />
+                    <input required name="email" class="form-control" type="email" placeholder="E-Mail" />
                 </div>
                 <div class="mb-3">
-                    <input name="age" class="form-control" type="number" placeholder="Age" />
+                    <input required min="17" max="100" name="age" class="form-control" type="number" placeholder="Age" />
                 </div>
                 <div class="mb-3">
-                    <input name="phone" class="form-control" type="tel" placeholder="Phone" />
+                    <input required name="phone" class="form-control" type="tel" placeholder="Phone" />
                 </div>
                 <button type="submit" class="btn btn-success" >Send <i class="bi bi-send"></i> </button>
             </form>
@@ -66,7 +66,7 @@
                     <td> <%=item.getAge()%> </td>
                     <td> <%=item.getPhone()%> </td>
                     <td>
-                        <a href="#" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></a>
+                        <a href="deletePerson?pid=<%=item.getPid()%>" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></a>
                     </td>
                 </tr>
                 <%}%>
