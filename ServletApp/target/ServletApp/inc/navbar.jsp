@@ -28,6 +28,9 @@
                     <a class="nav-link" href="product.jsp">Product</a>
                 </li>
 
+                <li class="nav-item">
+                    <a class="nav-link" href="message.jsp">Message</a>
+                </li>
 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

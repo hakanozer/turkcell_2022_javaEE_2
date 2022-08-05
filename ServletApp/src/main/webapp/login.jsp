@@ -1,4 +1,9 @@
+<%@ page import="useThread.Action" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    Action action = new Action();
+    action.call();
+%>
 <html>
 <head>
     <title>Title</title>
