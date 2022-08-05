@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -12,7 +13,7 @@ import java.util.Map;
 public class UserRestController {
 
     @PostMapping("/save")
-    public Map save(@RequestBody User user) {
+    public Map save(@Valid @RequestBody User user) {
         Map<String, Object> hm = new LinkedHashMap<>();
         hm.put("status", true);
         hm.put("user", user);
